@@ -73,7 +73,8 @@ export const toggleBookmark = async (req, res, next) => {
    const userId = req.userId;
    try {
       const user = await User.findById(userId);
-      const shows = user.shows;
+      const shows = [...user.shows];
+      // console.log(shows);
       const showIndex = shows.findIndex(
          (show) => show._id.toString() === showId
       );
@@ -82,9 +83,10 @@ export const toggleBookmark = async (req, res, next) => {
          error.statusCode = 404;
          throw error;
       }
-      const prevState = user.shows[showIndex].isBookmarked;
+      const prevState = shows[showIndex].isBookmarked;
       user.shows[showIndex].isBookmarked = !prevState;
-      await User.updateOne({ id: userId }, user);
+      await User.updateOne({ _id: userId }, user);
+      // user.save();
       res.status(200).json({
          showId,
          isBookmarked: user.shows[showIndex].isBookmarked,
