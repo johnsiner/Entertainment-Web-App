@@ -31,7 +31,7 @@ export default function Show({ data }) {
    });
 
    const toggleBookmark = async () => {
-      const response = await fetch('http://192.168.43.166:5000/show/' + id, {
+      const response = await fetch('/show/' + id, {
          method: 'PUT',
          headers: {
             'Content-Type': 'application/json',
