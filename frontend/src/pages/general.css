@@ -13,6 +13,10 @@
    .recommended.general {
       margin-top: 33px;
    }
+
+   .center {
+      height: 65vh;
+   }
 }
 
 @media(max-width: 480px) {

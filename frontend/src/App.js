@@ -1,5 +1,11 @@
 import './App.css';
-import { NavLink, Routes, Route, useLocation } from 'react-router-dom';
+import {
+   NavLink,
+   Routes,
+   Route,
+   useLocation,
+   Navigate,
+} from 'react-router-dom';
 import HomeIcon from './assets/HomeIcon';
 import logo from './assets/logo.svg';
 import avatar from './assets/image-avatar.png';
@@ -17,13 +23,18 @@ import Bookmarks from './pages/Bookmarks';
 
 function App() {
    const path = useLocation().pathname;
-   const logout = useContext(AuthContext).logout;
+   const authContext = useContext(AuthContext);
+   const logout = authContext.logout;
+   const token = authContext.token;
 
    return (
       <div className="App">
          {path === '/auth' ? (
             <Routes>
-               <Route path="/auth" element={<Auth />} />
+               <Route
+                  path="/auth"
+                  element={token ? <Navigate to="/" /> : <Auth />}
+               />
             </Routes>
          ) : (
             <div className="main-app">

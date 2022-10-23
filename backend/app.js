@@ -1,3 +1,4 @@
+import path from 'path';
 import bodyParser from 'body-parser';
 import express from 'express';
 
@@ -29,6 +30,12 @@ app.use((req, res, next) => {
 app.use('/auth', authRoutes);
 app.use('/show', showRoutes);
 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '/frontend/build')));
+app.get('*', (req, res) =>
+   res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+);
+
 app.use((error, req, res, next) => {
    console.log(error);
    const status = error.statusCode || 500;
@@ -37,10 +44,12 @@ app.use((error, req, res, next) => {
    res.status(status).json({ message, data });
 });
 
+const port = process.env.PORT || 5000;
+
 mongoose
    .connect(MONGODB_URI)
    .then((result) => {
       console.log('connected to db');
-      app.listen(5000);
+      app.listen(port);
    })
    .catch((err) => console.log(err));

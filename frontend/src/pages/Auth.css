@@ -52,7 +52,7 @@
 }
 
 .form-control input:-webkit-autofill {
-   -webkit-text-fill-color: var(--text-clr) !important;
+   -webkit-text-fill-color: white !important;
 }
 
 .form-control.invalid input {
