@@ -1,0 +1,22 @@
+.recommended.general {
+   margin-top: 19px;
+}
+
+.center {
+   height: 80vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+@media(max-width: 800px) {
+   .recommended.general {
+      margin-top: 33px;
+   }
+}
+
+@media(max-width: 480px) {
+   .recommended.general {
+      margin-top: 24px;
+   }
+}

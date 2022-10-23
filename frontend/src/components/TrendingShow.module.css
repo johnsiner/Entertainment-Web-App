@@ -1,0 +1,148 @@
+.card {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   width: 470px;
+   height: 230px;
+   padding: 16px 24px 24px;
+   flex-shrink: 0;
+}
+
+.card .image {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -100;
+}
+
+.card .image img {
+   border-radius: 8px;
+   /* width: 470px;
+   height: 230px; */
+}
+
+.bookmark {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: auto;
+   width: 32px;
+   aspect-ratio: 1;
+   background-color: hsla(223, 30%, 9%, .5);
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+
+.bookmark.bookmarked svg {
+   color: white;
+}
+
+.bookmark svg {
+   height: 14px;
+   color: transparent;
+   stroke: white;
+}
+
+.play-modal {
+   display: none;
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+   cursor: pointer;
+   z-index: -10;
+}
+
+.icon-container {
+   position: absolute;
+   display: flex;
+   align-items: center;
+   gap: 19px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   height: 48px;
+   width: 117px;
+   border-radius: 28.5px;
+   background: hsla(100, 100%, 100%, 0.25);
+}
+
+.icon-container div {
+   padding-left: 9px;
+}
+
+.details {
+   margin-top: auto;
+}
+
+.dot {
+   background: #FFFFFF;
+   opacity: 0.5;
+   width: 3px;
+   height: 3px;
+   border-radius: 50%;
+}
+
+.details .top {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   margin-bottom: 3px;
+}
+
+.category {
+   display: flex;
+   align-items: center;
+   gap: 6px;
+}
+
+.details .top svg {
+   height: 12px;
+   width: 12px;
+   opacity: 0.75;
+}
+
+.details p {
+   opacity: 0.75;
+}
+
+@media (hover: hover) and (pointer: fine) {
+   .card:hover {
+      cursor: pointer;
+   }
+
+   .card:hover .play-modal {
+      display: block;
+   }
+
+   .bookmark:hover {
+      background-color: white;
+   }
+
+   .bookmark:hover svg {
+      stroke: var(--bg-main);
+      color: white;
+   }
+}
+
+
+@media (max-width: 480px) {
+   .card {
+      width: 240px;
+      height: 140px;
+      padding: 8px 8px 16px 16px;
+   }
+
+   .details p {
+      font-size: 12px;
+   }
+
+   .details h2 {
+      font-size: 15px;
+   }
+}
