@@ -57,10 +57,10 @@ export default function Auth() {
       let url;
       let method;
       if (isSignUp) {
-         url = 'http://192.168.43.166:5000/auth/signup';
+         url = '/auth/signup';
          method = 'PUT';
       } else {
-         url = 'http://192.168.43.166:5000/auth/login';
+         url = '/auth/login';
          method = 'POST';
       }
       const response = await fetch(url, {

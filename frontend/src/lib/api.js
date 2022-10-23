@@ -1,7 +1,7 @@
-const API_DOMAIN = 'http://192.168.43.166:5000';
+// const API_DOMAIN = 'http://192.168.43.166:5000';
 
 export const getShows = async (token) => {
-   const response = await fetch(API_DOMAIN + '/show', {
+   const response = await fetch('/show', {
       headers: {
          Authorization: 'Bearer ' + token,
       },
@@ -14,7 +14,7 @@ export const getShows = async (token) => {
 };
 
 export const getTvSeries = async (token) => {
-   const response = await fetch(API_DOMAIN + '/show/tvseries', {
+   const response = await fetch('/show/tvseries', {
       headers: {
          Authorization: 'Bearer ' + token,
       },
@@ -27,7 +27,7 @@ export const getTvSeries = async (token) => {
 };
 
 export const getMovies = async (token) => {
-   const response = await fetch(API_DOMAIN + '/show/movies', {
+   const response = await fetch('/show/movies', {
       headers: {
          Authorization: 'Bearer ' + token,
       },
@@ -40,7 +40,7 @@ export const getMovies = async (token) => {
 };
 
 export const getBookmarked = async (token) => {
-   const response = await fetch(API_DOMAIN + '/show/bookmarked', {
+   const response = await fetch('/show/bookmarked', {
       headers: {
          Authorization: 'Bearer ' + token,
       },
