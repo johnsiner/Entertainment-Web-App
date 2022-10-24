@@ -1,9 +1,12 @@
 import { validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
 import User from '../models/User.js';
 import Show from '../models/Show.js';
+
+dotenv.config();
 
 export const signup = async (req, res, next) => {
    const errors = validationResult(req);
@@ -26,7 +29,7 @@ export const signup = async (req, res, next) => {
             email: user.email,
             userId: user._id.toString(),
          },
-         'entertainmentWebAppJwtSecrete',
+         process.env.JWT_SECRET,
          { expiresIn: '3hr' }
       );
       const expiresIn = new Date(new Date().getTime() + 3 * 60 * 60 * 1000);
@@ -65,7 +68,7 @@ export const login = async (req, res, next) => {
             email: user.email,
             userId: user._id.toString(),
          },
-         'entertainmentWebAppJwtSecrete',
+         process.env.JWT_SECRET,
          { expiresIn: '3hr' }
       );
       const expiresIn = new Date(new Date().getTime() + 3 * 60 * 60 * 1000);
