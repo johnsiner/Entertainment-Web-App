@@ -12,12 +12,11 @@ header {
   background-color: var(--bg-element);
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   width: 96px;
   border-radius: 20px;
   padding-block: 35px;
-  height: 700px;
+  height: max(90vh, 500px);
   flex-shrink: 0;
 }
 
