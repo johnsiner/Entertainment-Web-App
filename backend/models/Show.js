@@ -27,6 +27,10 @@ const showSchema = new Schema({
       type: Boolean,
       required: true,
    },
+   rating: {
+      type: String,
+      required: true,
+   },
 });
 
 export default mongoose.model('Show', showSchema);
